@@ -18,7 +18,7 @@ public StudentManager() {
 }
 
 
-
+// Comment your code Braeden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 public boolean readFromFile(String filename){
 
 File file = new File(filename);
@@ -50,10 +50,26 @@ try {
 
 
 }
+	
+	// Searches for a student by their id
+	public boolean searchStudentById(int id) {
+		// Loop through array, compare student ID unless the array location is NULL
+		for(int i = 0; i < students.length; i++) {
+			if(students[i] != null) {
+				if(students[i].getId() == id) {
+					System.out.println("Student found: " + students[i].toString()); // Print the student was found and their toString()
+					return true;
+				}
+			}
+		}
+		// No student found!
+		System.out.println("Student not found!");
+		return false;
+	}
 
 }
 
 
 
 
-}
+
