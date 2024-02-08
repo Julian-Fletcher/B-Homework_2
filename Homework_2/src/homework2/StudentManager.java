@@ -51,21 +51,32 @@ public class StudentManager
 			// Add each value of a student to student in array per entry
 			while (scanner.hasNextLine())
 			{
-				Student temp = new Student();
-				int id = scanner.nextInt();
-				String name = scanner.next();
-				double grade = scanner.nextDouble();
-				temp.setId(id);
-				temp.setName(name);
-				temp.setGrade(grade);
-				students[count] = temp;
-				count++;
+				// Makes sure new line is not an empty new line 
+				if(scanner.hasNextInt()) {
+					Student temp = new Student();
+					int id = scanner.nextInt();
+					
+					
+					String name = scanner.next();
+					name = name + " " + scanner.next();
+					double grade = scanner.nextDouble();
+					temp.setId(id);
+					temp.setName(name);
+					temp.setGrade(grade);
+					students[count] = temp;
+					count++;
+				}else {
+					// If new line is empty, ignore and end while loop
+					break;
+				}
 			}
+			scanner.close();
 			if(count == 0){
+				// No items to return... return false
 				return false;
 			}
 			// Close scanner
-			scanner.close();
+			
 			return true;
 		} catch (FileNotFoundException e) 
 		{
