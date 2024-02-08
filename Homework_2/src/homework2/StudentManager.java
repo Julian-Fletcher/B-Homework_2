@@ -33,16 +33,20 @@ public boolean updateStudentGradeById(int id, double grade)
 
 
 // Comment your code Braeden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//ugh fine
 public boolean readFromFile(String filename){
 
+	//initialize file collection
 	FileInputStream file;
 	
 	
 	try {
-		
+		// Collect file and init scanner
 		file = new FileInputStream(filename);
 		Scanner scanner = new Scanner(file, "UTF-8");
+		// Create for array index
 		int count = 0;
+		// Add each value of a student to student in array per entry
 		while (scanner.hasNextLine()){
 			Student temp = new Student();
 			int id = scanner.nextInt();
@@ -54,10 +58,11 @@ public boolean readFromFile(String filename){
 		    students[count] = temp;
 		    count++;
 		}
-		
+		// Close scanner
 		scanner.close();
 		return true;
 	} catch (FileNotFoundException e) {
+		// If file could not open, alert user
 		e.printStackTrace();
 		return false;
 	}
