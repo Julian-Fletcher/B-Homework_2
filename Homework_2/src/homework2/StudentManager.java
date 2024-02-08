@@ -22,12 +22,17 @@ public boolean updateStudentGradeById(int id, double grade)
 {
 	for(int i = 0; i < students.length; i++) //search for the given id in the array
 	{
-		if(students[i].getId() == id) //if you find the correct student change the grade
+		if(students[i] != null) //added null checking for students
 		{
-			students[i].setGrade(grade);
-			return true;
+			if(students[i].getId() == id) //if you find the correct student change the grade
+			{
+				System.out.println("Grade Updated. Student with ID: " + id + "was found"); //added output for confirming changes
+				students[i].setGrade(grade);
+				return true;
+			}
 		}
 	}
+	System.out.println("Grade was NOT changed. No student found with ID: " + id); //added output warning that no grade change was made
 	return false; //if you searched the array and don't find the given id, return false
 }
 
