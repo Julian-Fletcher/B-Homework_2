@@ -55,8 +55,6 @@ public class StudentManager
 				if(scanner.hasNextInt()) {
 					Student temp = new Student();
 					int id = scanner.nextInt();
-					
-					
 					String name = scanner.next();
 					name = name + " " + scanner.next();
 					double grade = scanner.nextDouble();
@@ -65,7 +63,7 @@ public class StudentManager
 					temp.setGrade(grade);
 					students[count] = temp;
 					count++;
-				}else {
+				} else {
 					// If new line is empty, ignore and end while loop
 					break;
 				}
