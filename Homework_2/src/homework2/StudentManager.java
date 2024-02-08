@@ -2,6 +2,7 @@ package homework2;
 
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 
@@ -21,39 +22,42 @@ public StudentManager() {
 
 public boolean readFromFile(String filename){
 
-File file = new File(filename);
-
-Scanner scanner;
+FileInputStream file;
 try {
-	scanner = new Scanner(file);
-	int count = 0;
-	while (scanner.hasNextLine()){
+	file = new FileInputStream(filename);
+	Scanner scanner = new Scanner(file, "UTF-8");
+		int count = 0;
+		while (scanner.hasNextLine()){
+			
+			Student temp = new Student();
+			int id = scanner.nextInt();
+			String name = scanner.next();
+			double grade = scanner.nextDouble();
+		    temp.setId(id);
+		    temp.setName(name);
+		    temp.setGrade(grade);
+		    students[count] = temp;
+		    count++;
+		}
 		
-		Student temp = new Student();
-		int id = scanner.nextInt();
-		String name = scanner.next();
-		double grade = scanner.nextDouble();
-	    temp.setId(id);
-	    temp.setName(name);
-	    temp.setGrade(grade);
-	    students[count] = temp;
-	    count++;
-	}
-	
-	scanner.close();
-	return true;
+		scanner.close();
+		return true;
 } catch (FileNotFoundException e) {
+	// TODO Auto-generated catch block
 	e.printStackTrace();
 	return false;
 }
 
 
 
-}
-
-}
-
 
 
 
 }
+
+}
+
+
+
+
+
