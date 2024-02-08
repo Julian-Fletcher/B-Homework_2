@@ -17,6 +17,19 @@ public StudentManager() {
 	
 }
 
+public boolean updateStudentGradeById(int id, double grade)
+{
+	for(int i = 0; i < students.length; i++) //search for the given id in the array
+	{
+		if(students[i].getId() == id) //if you find the correct student change the grade
+		{
+			students[i].setGrade(grade);
+			return true;
+		}
+	}
+	return false; //if you searched the array and don't find the given id, return false
+}
+
 
 // Comment your code Braeden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 public boolean readFromFile(String filename){
