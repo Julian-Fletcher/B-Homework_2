@@ -81,7 +81,20 @@ try {
 	}
 
 }
+// Desplay Student 
+public void displayStudents(){
+	if (students == null || students.length == 0){
+		System.out.println("No students to display.");
+		return;
+	}
 
+	System.out.println("Details of all students:");
+	for(Student student : students) {
+		if(student != null) {
+			System.out.println(student.toString());
+		}
+	}
+}
 
 
 
