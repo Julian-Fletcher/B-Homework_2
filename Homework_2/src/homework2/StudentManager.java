@@ -35,8 +35,6 @@ public class StudentManager
 	}
 
 
-	// Comment your code Braeden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//ugh fine
 	public boolean readFromFile(String filename)
 	{
 
@@ -62,6 +60,9 @@ public class StudentManager
 				temp.setGrade(grade);
 				students[count] = temp;
 				count++;
+			}
+			if(count == 0){
+				return false;
 			}
 			// Close scanner
 			scanner.close();
