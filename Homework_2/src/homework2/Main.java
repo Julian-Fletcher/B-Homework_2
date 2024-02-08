@@ -4,12 +4,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Output!");
-		/*
+		
 		// Instantiate StudentManager, perform operations based on the requirements.
 		StudentManager studentManager = new StudentManager();
 		
 		// Read student data from a file and initialize Student objects.
-		boolean fileReadStatus = studentManager.readFromFile("studentData.txt");
+		boolean fileReadStatus = studentManager.readFromFile("src/homework2/studentData.txt");
 		
 		// Display all students.
 		studentManager.displayStudents();
@@ -22,7 +22,7 @@ public class Main {
 		
 		// Display all students after the update.
 		studentManager.displayStudents();
-		*/
+		
 	}
 
 }

@@ -2,6 +2,7 @@ package homework2;
 
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 
@@ -13,7 +14,7 @@ private Student[] students;
 
 public StudentManager() {
 	
-	this.students = new Student[10];
+	this.students = new Student[50];
 	
 }
 
@@ -34,32 +35,33 @@ public boolean updateStudentGradeById(int id, double grade)
 // Comment your code Braeden!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 public boolean readFromFile(String filename){
 
-File file = new File(filename);
-
-Scanner scanner;
-try {
-	scanner = new Scanner(file);
-	int count = 0;
-	while (scanner.hasNextLine()){
+	FileInputStream file;
+	
+	
+	try {
 		
-		Student temp = new Student();
-		int id = scanner.nextInt();
-		String name = scanner.next();
-		double grade = scanner.nextDouble();
-	    temp.setId(id);
-	    temp.setName(name);
-	    temp.setGrade(grade);
-	    students[count] = temp;
-	    count++;
+		file = new FileInputStream(filename);
+		Scanner scanner = new Scanner(file, "UTF-8");
+		int count = 0;
+		while (scanner.hasNextLine()){
+			Student temp = new Student();
+			int id = scanner.nextInt();
+			String name = scanner.next();
+			double grade = scanner.nextDouble();
+		    temp.setId(id);
+		    temp.setName(name);
+		    temp.setGrade(grade);
+		    students[count] = temp;
+		    count++;
+		}
+		
+		scanner.close();
+		return true;
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+		return false;
 	}
 	
-	scanner.close();
-	return true;
-} catch (FileNotFoundException e) {
-	e.printStackTrace();
-	return false;
-}
-
 
 
 }
@@ -80,7 +82,7 @@ try {
 		return false;
 	}
 
-}
+
 // Desplay Student 
 public void displayStudents(){
 	if (students == null || students.length == 0){
@@ -94,6 +96,7 @@ public void displayStudents(){
 			System.out.println(student.toString());
 		}
 	}
+}
 }
 
 
