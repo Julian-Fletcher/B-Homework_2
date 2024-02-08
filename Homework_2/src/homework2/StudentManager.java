@@ -24,7 +24,7 @@ public class StudentManager
 			{
 				if(students[i].getId() == id) //if you find the correct student change the grade
 				{
-					System.out.println("Grade Updated. Student with ID: " + id + "was found"); //added output for confirming changes
+					System.out.println("Grade Updated. Student with ID: " + id + " was found"); //added output for confirming changes
 					students[i].setGrade(grade);
 					return true;
 				}
