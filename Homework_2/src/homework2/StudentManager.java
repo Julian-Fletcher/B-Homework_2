@@ -34,11 +34,46 @@ public class StudentManager {
 	public boolean readFromFile(String filename) {
 
 		// initialize file collection
+		
+		
+		
+		FileInputStream filescan;
+
+		try {
+			// Collect file and init scanner
+			filescan = new FileInputStream(filename);
+			
+			Scanner scanner = new Scanner(filescan, "UTF-8");
+			// Create for array index
+			int count = 0;
+			// Add each value of a student to student in array per entry
+			while (scanner.hasNextLine()) {
+				// Makes sure new line is not an empty new line
+				if (scanner.hasNextInt()) {
+					scanner.nextLine();
+					count++;
+				} else {
+					// If new line is empty, ignore and end while loop
+					break;
+				}
+			}
+			this.students = new Student[count];
+			scanner.close();
+
+		} catch (FileNotFoundException e) {
+			return false;
+		}
+		
+		
+		
+		
+		
 		FileInputStream file;
 
 		try {
 			// Collect file and init scanner
 			file = new FileInputStream(filename);
+			
 			Scanner scanner = new Scanner(file, "UTF-8");
 			// Create for array index
 			int count = 0;
@@ -71,7 +106,7 @@ public class StudentManager {
 			return true;
 		} catch (FileNotFoundException e) {
 			// If file could not open, alert user
-			e.printStackTrace();
+			
 			return false;
 		}
 	}
